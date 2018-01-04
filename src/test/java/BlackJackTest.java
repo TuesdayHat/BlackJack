@@ -14,9 +14,9 @@ public class BlackJackTest {
         assertEquals(true, output instanceof List);
     }
 
-//    @Test
-//    public void getCard_GenerateACard_string() throws Exception {
-//        String[] output = testGame.getCard();
-//        assertEquals(true, output instanceof String[]);
-//    }
+    @Test
+    public void getCard_GenerateACard_string() throws Exception {
+        String[] output = testGame.getCard();
+        assertEquals(true, output instanceof String[]);
+    }
 }

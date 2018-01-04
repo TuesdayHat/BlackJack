@@ -4,6 +4,7 @@ import java.util.List;
 public class BlackJack {
     String[] cards = {"Ace", "Two", "Three,", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
     String[] suits = {"Clubs", "Spades", "Hearts", "Diamonds"};
+    String[] card;
 
     private List deckBuild() {
         List<String[]> deck = new ArrayList<String[]>();
@@ -18,8 +19,13 @@ public class BlackJack {
         return deck;
     }
 
+
     public List getDeck(){
         return deckBuild();
+    }
+
+    public String[] getCard(){
+        return card;
     }
 }
 
