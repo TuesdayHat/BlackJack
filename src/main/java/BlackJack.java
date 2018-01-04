@@ -34,7 +34,7 @@ public class BlackJack {
         hand.add(drawCard());
 //        hand.add(drawCard());
         card = hand.get(0);
-        value = addValue(card);
+        value = addValue();
     }
 
 
@@ -62,9 +62,13 @@ public class BlackJack {
         return deck;
     }
 
-    public Integer addValue(String[] card){
+    public Integer addValue(){
         Integer result = 0;
-        result += values.get(card[0]);
+//        result += values.get(card[0]);
+        for (String[] face : hand){
+            result += values.get(face[0]);
+        }
+
         return result;
     }
 
@@ -72,7 +76,6 @@ public class BlackJack {
     public List getDeck(){
         return deck;
     }
-
     public String[] getCard(){
         return card;
     }
@@ -82,9 +85,12 @@ public class BlackJack {
     public int getValue(){
         return value;
     }
+    public Map<String, Integer> getValues(){
+        return values;
+    }
 }
 
-// String[] cardSuit = ["Ace", "Spades"]
+// String[] cardSuit = ["Ace", "Spades", "11"]
 // String card = cardSuit[0]
 // String suit = cardSuit[1]
 // system.out.println("%s of %s", card, suit)
