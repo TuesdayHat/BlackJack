@@ -63,7 +63,8 @@ public class BlackJack {
     }
 
     public Integer addValue(String[] card){
-        int result = 0;
+        Integer result = 0;
+        result += values.get(card[0]);
         return result;
     }
 

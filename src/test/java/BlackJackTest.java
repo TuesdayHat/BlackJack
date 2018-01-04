@@ -34,6 +34,8 @@ public class BlackJackTest {
     @Test
     public void scoreCards_AssignValueToCard_int() throws Exception {
         Integer output = testGame.getValue();
+        System.out.println(output);
+        System.out.println(testGame.getCard()[0]);
         assert(output > 0);
     }
 }
