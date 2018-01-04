@@ -1,7 +1,5 @@
 import org.junit.Test;
-
 import java.util.List;
-
 import static org.junit.Assert.*;
 
 
@@ -23,7 +21,7 @@ public class BlackJackTest {
     }
 
     @Test
-    public void getCards_getTwoCards_arrayStringArray() throws Exception {
+    public void getCards_getTwoCardsOrMore_arrayStringArray() throws Exception {
         List<String[]> output = testGame.getHand();
         String[] cardOne = output.get(0);
         String[] cardTwo = output.get(1);
@@ -31,5 +29,11 @@ public class BlackJackTest {
         int expected = 2;
 //        assertEquals(expected, output.size());
         assert(output.size() >= expected);
+    }
+
+    @Test
+    public void scoreCards_AssignValueToCard_int() throws Exception {
+        Integer output = testGame.getValue();
+        assert(output > 0);
     }
 }
