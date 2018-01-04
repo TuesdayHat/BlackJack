@@ -5,9 +5,10 @@ import java.util.Random;
 public class BlackJack {
     String[] cards = {"Ace", "Two", "Three,", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
     String[] suits = {"Clubs", "Spades", "Hearts", "Diamonds"};
-    String[] card;
     List<String[]> deck = new ArrayList<>();
+    String[] card;
     Random picker = new Random();
+    List<String[]> hand = new ArrayList<>();
 
     BlackJack(){
         deck = deckBuild();
@@ -35,6 +36,9 @@ public class BlackJack {
 
     public String[] getCard(){
         return card;
+    }
+    public List getHand(){
+        return hand;
     }
 }
 

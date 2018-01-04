@@ -16,9 +16,17 @@ public class BlackJackTest {
     }
 
     @Test
-    public void getCard_GenerateACard_string() throws Exception {
+    public void getCard_GenerateACard_stringArray() throws Exception {
         String[] output = testGame.getCard();
         System.out.println(String.format("%s of %s", output[0], output[1]));
         assertEquals(true, output instanceof String[]);
+    }
+
+    @Test
+    public void getCards_getTwoCards_arrayStringArray() throws Exception {
+        List output = testGame.getHand();
+        System.out.println(output.size());
+        int expected = 2;
+        assertEquals(expected, output.size());
     }
 }
