@@ -6,6 +6,7 @@ public class BlackJack {
     String[] suits = {"Clubs", "Spades", "Hearts", "Diamonds"};
     String[] card;
 
+
     private List deckBuild() {
         List<String[]> deck = new ArrayList<String[]>();
         for(int i=0;i<cards.length;i++){
