@@ -12,9 +12,14 @@ public class BlackJack {
 
     BlackJack(){
         deck = deckBuild();
-        card = deck.get(picker.nextInt(deck.size()));
+        hand.add(drawCard());
+        hand.add(drawCard());
     }
 
+    public String[] drawCard(){
+        String[] draw = deck.get(picker.nextInt(deck.size()));
+        return draw;
+    }
 
     public List deckBuild() {
         List<String[]> deck = new ArrayList<>();
@@ -35,9 +40,9 @@ public class BlackJack {
     }
 
     public String[] getCard(){
-        return card;
+        return drawCard();
     }
-    public List getHand(){
+    public List<String[]> getHand(){
         return hand;
     }
 }
