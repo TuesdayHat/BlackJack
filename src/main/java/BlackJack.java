@@ -14,6 +14,7 @@ public class BlackJack {
         deck = deckBuild();
         hand.add(drawCard());
         hand.add(drawCard());
+        hand.add(drawCard());
     }
 
     public String[] drawCard(){
