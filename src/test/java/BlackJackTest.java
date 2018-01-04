@@ -18,7 +18,7 @@ public class BlackJackTest {
     @Test
     public void getCard_GenerateACard_string() throws Exception {
         String[] output = testGame.getCard();
-        System.out.println(output.length);
+        System.out.println(String.format("%s of %s", output[0], output[1]));
         assertEquals(true, output instanceof String[]);
     }
 }

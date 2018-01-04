@@ -1,17 +1,25 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class BlackJack {
     String[] cards = {"Ace", "Two", "Three,", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
     String[] suits = {"Clubs", "Spades", "Hearts", "Diamonds"};
     String[] card;
+    List<String[]> deck = new ArrayList<>();
+    Random picker = new Random();
+
+    BlackJack(){
+        deck = deckBuild();
+        card = deck.get(picker.nextInt(deck.size()));
+    }
 
 
-    private List deckBuild() {
-        List<String[]> deck = new ArrayList<String[]>();
+    public List deckBuild() {
+        List<String[]> deck = new ArrayList<>();
         for(int i=0;i<cards.length;i++){
-            String[] card = new String[2];
             for(int j=0;j<suits.length;j++){
+                String[] card = new String[2];
                 card[0] = cards[i];
                 card[1] = suits[j];
                 deck.add(card);
@@ -22,7 +30,7 @@ public class BlackJack {
 
 
     public List getDeck(){
-        return deckBuild();
+        return deck;
     }
 
     public String[] getCard(){
