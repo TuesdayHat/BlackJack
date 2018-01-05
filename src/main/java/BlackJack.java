@@ -26,15 +26,26 @@ public class BlackJack {
         put("Jack", 10);
         put("Queen", 10);
         put("King", 10);
+
     }};
+    private boolean twentyOne = false;
+    private boolean isAce = false;
+
 
     BlackJack(){
         deck = deckBuild();
         hand.add(drawCard());
         hand.add(drawCard());
-//        hand.add(drawCard());
+        hand.add(drawCard());
         card = hand.get(0);
         value = addValue();
+        compare();
+        aceCheck();
+        System.out.println(hand.get(0)[0] + " // " + hand.get(1)[0] + " // " + hand.get(2)[0]);
+        System.out.println(value);
+        System.out.println(twentyOne);
+        System.out.println(values.get("Ace"));
+
     }
 
 
@@ -72,6 +83,24 @@ public class BlackJack {
         return result;
     }
 
+    public void compare(){
+        if (value > 21){
+            twentyOne = true;
+        }
+    }
+
+    public void aceCheck(){
+        for (String[] card:hand){
+            if (card[0].equals("ace") && twentyOne){
+                isAce = true;
+                setAce();
+                twentyOne = false;
+                updateValue();
+
+            }
+        }
+    }
+
 
     public List getDeck(){
         return deck;
@@ -87,6 +116,20 @@ public class BlackJack {
     }
     public Map<String, Integer> getValues(){
         return values;
+    }
+    public boolean getCompare(){
+        return twentyOne;
+    }
+    public boolean getIsAce(){
+        aceCheck();
+        return isAce;
+    }
+
+    public void setAce(){
+        this.values.put("Ace", 1);
+    }
+    public void updateValue(){
+        this.value = addValue();
     }
 }
 

@@ -11,7 +11,7 @@ public class BlackJackTest {
     Map<String, Integer> values = testGame.getValues();
 
     @Test
-    public void getDeck_generateADeckOfCards_boolean() throws Exception{
+    public void getDeck_generateADeckOfCards_boolean() throws Exception {
         List output = testGame.getDeck();
 //        System.out.println(output.size());
         assertEquals(true, output instanceof List);
@@ -32,7 +32,7 @@ public class BlackJackTest {
 //        System.out.println(String.format("%s of %s, %s of %s", cardOne[0], cardOne[1], cardTwo[0], cardTwo[1]));
         int expected = 2;
 //        assertEquals(expected, output.size());
-        assert(output.size() >= expected);
+        assert (output.size() >= expected);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class BlackJackTest {
         Integer output = testGame.getValue();
 //        System.out.println(output);
 //        System.out.println(testGame.getCard()[0]);
-        assert(output > 0);
+        assert (output > 0);
     }
 
     @Test
@@ -48,10 +48,49 @@ public class BlackJackTest {
         List<String[]> hand = testGame.getHand();
         String[] cardOne = hand.get(0);
         String[] cardTwo = hand.get(1);
-        System.out.println(String.format("%s of %s, %s of %s", cardOne[0], cardOne[1], cardTwo[0], cardTwo[1]));
-        System.out.println(testGame.getValue());
+//        System.out.println(String.format("%s of %s, %s of %s", cardOne[0], cardOne[1], cardTwo[0], cardTwo[1]));
+//        System.out.println(testGame.getValue());
         Integer actual = testGame.getValue();
         Integer expected = values.get(cardOne[0]) + values.get(cardTwo[0]);
-        assertEquals(expected, actual);
+        assert(expected <= actual);
     }
 
+    @Test
+    public void compare_checkValueAgainstTewntyOne_boolean() throws Exception {
+        int handVal = testGame.getValue();
+        List<String[]> hand = testGame.getHand();
+        int handSize = hand.size();
+        if (handSize < 3){
+            assertFalse(testGame.getCompare());
+        } else if (testGame.getValue() > 21) {
+            assertTrue(testGame.getCompare());
+        } else {
+            assertFalse(testGame.getCompare());
+        }
+    }
+
+    @Test
+    public void aceCheck_checkIfHandContainsAnAce_boolean() throws Exception {
+        List<String[]> hand = testGame.getHand();
+        if(testGame.getIsAce()){
+            assertTrue(testGame.getIsAce());
+        } else {
+            assertFalse(testGame.getIsAce());
+        }
+
+        String[] cardOne = hand.get(0);
+        String[] cardTwo = hand.get(1);
+        String[] cardThree = hand.get(2);
+
+//        System.out.println(String.format("%s of %s, %s of %s, %s of %s", cardOne[0], cardOne[1], cardTwo[0], cardTwo[1], cardThree[0], cardThree[1]));
+//        System.out.println(testGame.getValue());
+    }
+
+//    @Test
+//    public void aceCheck_alterValueOfAceBasedOnDifferenceWith21_int() throws Exception {
+//        List<String[]> hand = testGame.getHand();
+//        if (){
+//
+//        }
+//    }
+}
